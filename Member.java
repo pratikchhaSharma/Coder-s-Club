@@ -2,11 +2,11 @@
  * @author Pratikchha
  * Member class stores information related to a member of Coder's Club
  */
-import java.text.ParseException;
+import java.util.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Member {
+public class Member implements Comparable<Member> {
 	//declaring variables
 private String firstName;
 private String lastName;
@@ -14,6 +14,13 @@ private String email;
 private String major;
 private String date;
 private static int numMembers;
+
+public int compareTo(Member o)
+{
+		if(this.lastName.compareToIgnoreCase(o.getLastName())<0) return -1; 
+		else if (this.lastName.compareToIgnoreCase(o.getLastName())> 0) return 1; 
+		else return 0;
+}
 
 public Member() { this.numMembers++;} //defualt constructor
 
@@ -113,7 +120,7 @@ public boolean validateDate(String date){
 		{
 			Date enteredDate = sdf.parse(date);	
 		} 
-		catch (ParseException e) 
+		catch (Exception e) 
 		{
 			e.printStackTrace();
 			return false;

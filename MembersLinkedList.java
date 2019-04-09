@@ -14,29 +14,52 @@ public class MembersLinkedList
 	}
 	public int getSize(){ return size; }
 
-	public void add(Node node){
-		size++;
-		if(head==null) 
-			head = node; //if the linkedlist is empty
-		else
-		{
-			Node curr = head; 
-			if(!curr.hasNext())  //if there is only one element in linked list
-			{
-				curr.setNext(node);
-			}
-			else //more than one node in a linked list
-			{
-				while(curr.hasNext())
-				{
-					curr = curr.getNext(); 
-				}
-				curr.setNext(node);
-			}
+
+	public void addSorted(Node node)
+   {
+		if (isEmpty()) //when the list is empty
+      { 
+			add(node);
+			return;
 		}
-	//end add	
+				
+		Node current = head; 
+		Node previous = current;
+		
+		if(getSize()==1) { //when the list has only one node
+			if(node.getData().getLastName().compareTo(current.getData().getLastName()) > 0 ){
+				node.setNext(current);
+				head = node;
+				size++; 
+			}
+			else {
+				current.setNext(node);
+				size++; 
+			}
+			return;
+		}
+    
+      previous = current; 
+		current = current.getNext(); 
+		
+		while(current!=null){
+			if(node.getData().getLastName().compareTo(current.getData().getLastName()) > 0 ){
+					previous.setNext(node);
+					node.setNext(current);
+					size++;
+					return;
+			}
+			
+			previous = current; 
+			current = current.getNext();
+			
+		}
+		previous.setNext(node);
+		size++;
+				
 	}
-	
+
+		
 	/*
 	 * @param none
 	 * remove method returns and removes from the linkedlist

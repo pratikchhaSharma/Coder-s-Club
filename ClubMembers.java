@@ -33,7 +33,7 @@ public class ClubMembers
 	 */
 	public static void addMember(Member person, MembersLinkedList memberList)
 	{
-			memberList.add(new Node(person, null)); //adding person to the linkedlist
+			memberList.addSorted(new Node(person, null)); //adding person to the linkedlist
 	//end addMember
 	}
 	
