@@ -13,8 +13,10 @@ private String lastName;
 private String email;
 private String major;
 private String date;
-private static int numMembers;
 
+/*
+*comapres and returns integer value based on the last name of the member
+*/
 public int compareTo(Member o)
 {
 		if(this.lastName.compareToIgnoreCase(o.getLastName())<0) return -1; 
@@ -22,10 +24,10 @@ public int compareTo(Member o)
 		else return 0;
 }
 
-public Member() { this.numMembers++;} //defualt constructor
-
+public Member(){};
 public Member(String firstName, String lastName, String email, String major, String date)
 {
+   this();
 	if(firstName==null || firstName.contentEquals(""))
 		throw new IllegalArgumentException("First name must be provided");
 	if(lastName==null || lastName.equals(""))
@@ -41,7 +43,6 @@ public Member(String firstName, String lastName, String email, String major, Str
 	this.email = email;
 	this.major = major;
 	this.date = date;
-	this.numMembers++;
 //end constructor
 }
 
@@ -134,7 +135,6 @@ public String getLastName(){return this.lastName;}
 public String getEmail(){return this.email;}
 public String getMajor(){return this.major;}
 public String getDate(){return this.date;}
-public static int getNumMembers() {return numMembers;}
 
 public String toString()
 {

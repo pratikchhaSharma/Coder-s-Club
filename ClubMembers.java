@@ -39,7 +39,7 @@ public class ClubMembers
 	
 	public static void printMember(MembersLinkedList aMember)
 	{
-		String report = "Total Members: " + Member.getNumMembers() + "\nAll club members are listed below: \n" + "First Name            Last Name               Email               Major            Joined Date \n" ;
+		String report = "Total members: " + aMember.getSize() + "\nAll club members are listed below: \n" + "First Name            Last Name               Email               Major            Joined Date \n" ;
 		while(aMember.getSize()>0)
 		{
 			report+= aMember.remove();

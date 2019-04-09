@@ -1,4 +1,5 @@
-public class Node
+//creating a node of a linkedlist
+public class Node 
 {
 	private Member data; 
 	private Node next; //link
@@ -13,7 +14,8 @@ public class Node
 	public void setNext(Node next){ this.next = next; }
 	public Member getData(){return data; }
 	public Node getNext() { return next; }
-	public boolean hasNext()
+   
+	public boolean hasNext() //checks if the address of the next node exists
 	{ 
 		if (next!=null) 
 			return true; 
